@@ -9,8 +9,8 @@ export const TravelNoteList = ({
         <>
             {travelNoteList.length !== 0 &&(
                 <List w="full" borderWidth='1px' borderRadius='lg' overflow='hidden' bgColor="white">
-                    {travelNoteList.map((travelNote) => (
-                        <TravelNote
+                    {travelNoteList.map((travelNote,i) => (
+                        <TravelNote key={i}
                             travelNote={travelNote}
                         />
                     ))};

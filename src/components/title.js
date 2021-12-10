@@ -2,7 +2,7 @@ import React, { memo } from "react";
 
 import { Heading } from "@chakra-ui/react";
 
-export const Title = memo(({ icon, title, as, fontSize, mt, mb }) => {
+export const Title = memo(function Title({ icon, title, as, fontSize, mt, mb }) {
     return (
         <Heading
             m="0"

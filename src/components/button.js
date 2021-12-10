@@ -2,7 +2,7 @@ import React, { memo } from "react";
 
 import { Button } from "@chakra-ui/react";
 
-export const KoedoButton = memo(({ label, fontSize, bgImage }) => {
+export const KoedoButton = memo(function KoedoButton({ label, fontSize, bgImage }) {
     return (
         <Button
             m="1"
