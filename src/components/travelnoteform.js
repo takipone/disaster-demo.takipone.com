@@ -1,8 +1,21 @@
+import React, {useState, useEffect} from 'react'
 import { VStack, Flex, Heading, Input, Textarea, Button } from "@chakra-ui/react";
+
+
 
 export const TravelNoteForm = ({
     handleAddTravelNote
 }) => {
+    const [enableButton, setEnableButton] = useState(false);
+
+    useEffect(() => {
+        fetch('https://koedo.cod.coralrf.app/hello')
+        .then(res => res.json())
+        .then(data => {
+            if(data) setEnableButton(true)
+        })
+    },[]);
+    
     return (
         <VStack spacing={1} p="1">
             <Heading as="h2" size='md' mt="16px">旅人のこえ</Heading>
@@ -24,6 +37,7 @@ export const TravelNoteForm = ({
                     m="4"
                     mr="0"
                     colorScheme="teal"
+                    isDisabled={!enableButton}
                     onClick={handleAddTravelNote}
                 >
                     お墨付き投稿
