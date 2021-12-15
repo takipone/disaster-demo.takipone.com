@@ -37,16 +37,17 @@ export default function Home() {
       body: "{'message':'test'}"
     })
     .then(res => {
-      if(res.ok) setEnableButton(true);
-      setTravelNoteList([...travelNoteList,{
-        author: nameElement.current.value,
-        nickname: snsElement.current.value,
-        date: Date.now(),
-        title: titleElement.current.value,
-        description: descriptionElement.current.value,
-        certified: true
-      }]);
-      })
+      if(res.ok) {
+        setTravelNoteList([...travelNoteList,{
+          author: nameElement.current.value,
+          nickname: snsElement.current.value,
+          date: Date.now(),
+          title: titleElement.current.value,
+          description: descriptionElement.current.value,
+          certified: true
+        }]);
+      }
+    })
     .catch((error) => {
       console.error('Error:', error);
     });
