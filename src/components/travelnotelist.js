@@ -1,6 +1,5 @@
 import { List } from "@chakra-ui/react";
 import { TravelNote } from "./travelnote";
-import { TravelNoteForm } from "./travelnoteform";
 
 export const TravelNoteList = ({
     travelNoteList,
@@ -14,7 +13,6 @@ export const TravelNoteList = ({
                             travelNote={travelNote}
                         />
                     ))};
-                    <TravelNoteForm />
                 </List>
             )}
         </>

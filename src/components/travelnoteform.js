@@ -4,6 +4,11 @@ import { VStack, Flex, Stack, Heading, Input, Textarea, Button, Tooltip, useDisc
 import { SuggestCertifiedCommentModal } from "./modal";
 
 export const TravelNoteForm = ({
+    nameElement,
+    snsElement,
+    titleElement,
+    descriptionElement,
+    handleAddCertifiedTravelNote,
     handleAddTravelNote
 }) => {
     const [enableButton, setEnableButton] = useState(false);
@@ -22,20 +27,28 @@ export const TravelNoteForm = ({
     
     return (
         <>
-            <VStack spacing={1} p="1">
+            <VStack spacing={1} mt="1" p="1" w="full" borderWidth='1px' borderRadius='lg' overflow='hidden' bgColor="white">
                 <Heading as="h2" size='md' mt="16px">旅人のこえ</Heading>
                 <Input
                     placeholder="お名前"
                     mt="2"
                     m="1"
+                    ref={nameElement}
                 />
                 <Input
                     placeholder="SNSのID"
                     mt="2"
+                    ref={snsElement}
+                />
+                <Input
+                    placeholder="タイトル"
+                    mt="2"
+                    ref={titleElement}
                 />
                 <Textarea
                     placeholder="旅の感想を入力ください"
                     mt="2"
+                    ref={descriptionElement}
                 />
                 <Flex>
                     <Tooltip hasArrow label='現地のWi-Fi APで使えます' bg='gray.300' color='black'>
@@ -45,7 +58,7 @@ export const TravelNoteForm = ({
                                 mr="0"
                                 colorScheme="teal"
                                 isDisabled={!enableButton}
-                                onClick={handleAddTravelNote}
+                                onClick={handleAddCertifiedTravelNote}
                             >
                                 お墨付き投稿
                             </Button>
