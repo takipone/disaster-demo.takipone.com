@@ -1,7 +1,7 @@
 export default function handler(req, res) {
 //    if (req.method === 'POST') {
-        const crl_pop = req.get('X-Crl-Pop');
-        const crl_token = req.get('X-Crl-Token');
+        const crl_pop = req.headers.x-crl-pop;
+        const crl_token = req.headers.x-crl-token;
         res.status(200).json({
             pop: crl_pop,
             token: crl_token
