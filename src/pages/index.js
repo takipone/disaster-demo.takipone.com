@@ -32,14 +32,24 @@ export default function Home() {
   const titleElement = useRef(null);
   const descriptionElement = useRef(null);
   const handleAddCertifiedTravelNote = () => {
-    setTravelNoteList([...travelNoteList,{
-      author: nameElement.current.value,
-      nickname: snsElement.current.value,
-      date: Date.now(),
-      title: titleElement.current.value,
-      description: descriptionElement.current.value,
-      certified: true
-    }]);
+    fetch('https://koedo.cod.coralrf.app/api/voice', {
+      method: 'POST',
+      body: "{'message':'test'}"
+    })
+    .then(res => {
+      if(res.ok) setEnableButton(true);
+      setTravelNoteList([...travelNoteList,{
+        author: nameElement.current.value,
+        nickname: snsElement.current.value,
+        date: Date.now(),
+        title: titleElement.current.value,
+        description: descriptionElement.current.value,
+        certified: true
+      }]);
+      })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
   };
   const handleAddTravelNote = () => {
     setTravelNoteList([...travelNoteList,{
