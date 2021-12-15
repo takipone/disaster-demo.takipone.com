@@ -1,10 +1,10 @@
 export default function handler(req, res) {
 //    if (req.method === 'POST') {
-        const crl_pop = req.headers.x-crl-pop;
-        const crl_token = req.headers.x-crl-token;
+        const crlPop = req.headers.x-crl-pop;
+        const crlToken = req.headers.x-crl-token;
         res.status(200).json({
-            pop: crl_pop,
-            token: crl_token
+            pop: crlPop,
+            token: crlToken
         });
 //    } else {
 //        res.status(405).send('method not allowed');
