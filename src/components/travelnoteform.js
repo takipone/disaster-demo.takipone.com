@@ -12,10 +12,8 @@ export const TravelNoteForm = ({
     useEffect(() => {
         onOpen();
         fetch('https://koedo.cod.coralrf.app/hello')
-        .then(res => res.json())
-        .then(data => {
-            if(data) setEnableButton(true)
-            else onOpen()
+        .then(res => {
+            if(res.ok) setEnableButton(true)
         })
         .catch((error) => {
             console.error('Error:', error);
