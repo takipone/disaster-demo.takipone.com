@@ -1,8 +1,8 @@
 import { ListItem, Box, Badge } from "@chakra-ui/react";
 import { StarIcon } from "@chakra-ui/icons";
 
-export const TravelNote = ({
-    travelNote
+export const Message = ({
+    message
 }) => {
     return (
         <ListItem borderBottomWidth='1px'>
@@ -11,26 +11,23 @@ export const TravelNote = ({
                     display='flex'
                     alignItems='baseline'
                 >
-                    <Badge borderRadius='full' px='2' colorScheme='yellow'>
-                        New
-                    </Badge>
                     <Box
                         color='gray.500'
                         fontWeight='semibold'
                         fontSize='s'
                         ml='2'
                     >
-                        {travelNote.author}
+                        {message.author}
                     </Box>
                     <Box
                         color='gray.500'
                         fontSize='xs'
                         ml='2'
                     >
-                        @{travelNote.nickname}
+                        @{message.date}
                     </Box>
                     <Box ml='auto'>
-                        <StarIcon color={travelNote.certified ? 'teal.300' : 'gray.100'} />
+                        <StarIcon color={message.certified ? 'teal.300' : 'gray.100'} />
                     </Box>
                 </Box>
                 <Box
@@ -40,14 +37,14 @@ export const TravelNote = ({
                     lineHeight='tight'
                     isTruncated
                 >
-                    {travelNote.title}
+                    {message.title}
                 </Box>
                 <Box
                     mt='1'
                     lineHeight='tight'
                     fontSize='xs'
                 >
-                    {travelNote.description}
+                    {message.description}
                 </Box>
             </Box>
         </ListItem>

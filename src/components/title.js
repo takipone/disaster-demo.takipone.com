@@ -12,8 +12,9 @@ export const Title = memo(function Title({ icon, title, as, fontSize, mt, mb }) 
             fontSize={fontSize}
             align="center"
             color="white"
-            fontFamily="Serif"
-            bgColor="red.700"
+//            fontFamily="Serif"
+            fontWeight="medium"
+            bgColor="green.400"
         >
             {icon}&nbsp;{title}
         </Heading>
