@@ -18,6 +18,10 @@ var messageList = [
     },
 ];
 
+var edgeList = {
+    hatsudai01:"初台",
+};
+
 export default function handler(req, res) {
     switch (req.method) {
         case 'GET':
@@ -33,6 +37,7 @@ export default function handler(req, res) {
             if (req.headers['x-crl-pop'] && req.headers['x-crl-token']) {
                 try {
                     jwt.verify(req.headers['x-crl-token'], process.env.JWT_SHARED_KEY);
+                    message.date += " (" + edgeList[req.headers['x-crl-pop']] + ")";
                     message.certified = true;
                 } catch (err) {
                     message.certified = false;
