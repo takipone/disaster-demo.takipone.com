@@ -1,4 +1,5 @@
 import sanitizer from 'validator';
+import jwt from 'jsonwebtoken';
 
 var messageList = [
     {
@@ -30,7 +31,12 @@ export default function handler(req, res) {
                 description: sanitizer.escape(req.body.description),
             };
             if (req.headers['x-crl-pop'] && req.headers['x-crl-token']) {
-                message.certified = true;
+                try {
+                    jwt.verify(req.headers['x-crl-token'], process.env.JWT_SHARED_KEY);
+                    message.certified = true;
+                } catch (err) {
+                    message.certified = false;
+                }
             } else {
                 message.certified = false;
             };
