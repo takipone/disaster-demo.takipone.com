@@ -37,6 +37,9 @@ export default function handler(req, res) {
             if (req.headers['x-crl-pop'] && req.headers['x-crl-token']) {
                 try {
                     jwt.verify(req.headers['x-crl-token'], process.env.JWT_SHARED_KEY);
+                    if(message.date == "none") {
+                        message.date = new Date().toString();
+                    }
                     message.date += " (" + edgeList[req.headers['x-crl-pop']] + ")";
                     message.certified = true;
                 } catch (err) {
