@@ -38,7 +38,7 @@ export default function handler(req, res) {
                 try {
                     jwt.verify(req.headers['x-crl-token'], process.env.JWT_SHARED_KEY);
                     if(message.date == "none") {
-                        message.date = new Date().toString();
+                        message.date = new Date().toLocaleString({ timeZone: 'Asia/Tokyo' });
                     }
                     message.date += " (" + edgeList[req.headers['x-crl-pop']] + ")";
                     message.certified = true;
